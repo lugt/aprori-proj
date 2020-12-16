@@ -24,13 +24,14 @@ if __name__ == "__main__":
                 cur_list = [row[1]]
                 curid = row[0]
 
-transactions = transactions[1:100]
+# transactions = transactions[1:100]
 
-itemsets, rules = apriori(transactions, min_support=0.03, min_confidence=0.01)
+itemsets, rules = apriori(transactions, min_support=0.02, min_confidence=0.4)
 
 # Print out every rule with 2 items on the left hand side,
 # 1 item on the right hand side, sorted by lift
-rules_rhs = filter(lambda rule: len(rule.lhs) == 2 and len(rule.rhs) == 1, rules)
+# rules_rhs = filter(lambda rule: len(rule.lhs) == 2 and len(rule.rhs) == 1, rules)
+rules_rhs = rules
 for rule in sorted(rules_rhs, key=lambda rule: rule.lift):
   print(rule)  # Prints the rule and its confidence, support, lift, ...
 
