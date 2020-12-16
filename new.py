@@ -24,9 +24,9 @@ if __name__ == "__main__":
                 cur_list = [row[1]]
                 curid = row[0]
 
-transactions = transactions[1:4]
+transactions = transactions[1:100]
 
-itemsets, rules = apriori(transactions, min_support=0.2, min_confidence=1)
+itemsets, rules = apriori(transactions, min_support=0.03, min_confidence=0.01)
 
 # Print out every rule with 2 items on the left hand side,
 # 1 item on the right hand side, sorted by lift
