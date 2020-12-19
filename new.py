@@ -33,5 +33,5 @@ itemsets, rules = apriori(transactions, min_support=0.02, min_confidence=0.4)
 # rules_rhs = filter(lambda rule: len(rule.lhs) == 2 and len(rule.rhs) == 1, rules)
 rules_rhs = rules
 for rule in sorted(rules_rhs, key=lambda rule: rule.lift):
-  print(rule)  # Prints the rule and its confidence, support, lift, ...
+  print(rule, "improvement: ", rule.confidence / rule.support)  # Prints the rule and its confidence, support, lift, ...
 
